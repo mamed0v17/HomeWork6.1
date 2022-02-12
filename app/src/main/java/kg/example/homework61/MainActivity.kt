@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var btn: Button
     private lateinit var tvMail: EditText
     private lateinit var registerForActivityResult: ActivityResultLauncher<Intent>
 
@@ -19,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn = findViewById(R.id.btn_go)
         tvMail = findViewById(R.id.tv_mail)
-        btn.setOnClickListener {
+
+        findViewById<Button>(R.id.btn_go).setOnClickListener {
             if (tvMail.text.toString().isEmpty()) {
-                Toast.makeText(this, "вы нечего не написали", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Вы нечего не написали", Toast.LENGTH_SHORT).show()
             } else {
                 Intent(this@MainActivity, EmailActivity::class.java).apply {
                     putExtra("edit_text", tvMail.text.toString())
@@ -34,9 +33,7 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->
-            val intent = result.data
-
-            tvMail.setText(intent?.getStringExtra("result"))
+            tvMail.setText(result.data?.getStringExtra("result"))
         }
     }
 }

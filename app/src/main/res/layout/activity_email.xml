@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@drawable/fon_one"
     tools:context=".EmailActivity">
 
     <EditText
@@ -12,7 +13,7 @@
         android:layout_width="256dp"
         android:layout_height="32dp"
         android:layout_marginTop="24dp"
-        tools:text="Введите х оть что"
+        tools:text="Введите хоть что"
         android:background="#E5E3E6"
         tools:ignore="Autofill,LabelFor,TextFields"/>
 

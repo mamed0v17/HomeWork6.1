@@ -2,4 +2,7 @@
     <string name="app_name">HomeWork6.1</string>
     <string name="go">Go</string>
     <string name="exit">Exit</string>
+    <string name="Noo">Нету символов</string>
+    <string name="edit">edit_text</string>
+    <string name="result">result</string>
 </resources>

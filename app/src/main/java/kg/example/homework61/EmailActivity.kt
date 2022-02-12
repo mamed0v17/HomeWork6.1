@@ -3,20 +3,24 @@ package kg.example.homework61
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
+import kg.example.homework61.databinding.ActivityEmailBinding
 
 class EmailActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityEmailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_email)
+        binding = ActivityEmailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val text = findViewById<EditText>(R.id.tv_activity)
-        text.setText(intent.getStringExtra("edit_text"))
+        binding.tvActivity.setText(intent.getStringExtra("edit_text"))
 
-        findViewById<Button>(R.id.btn_exit).setOnClickListener {
-            setResult(RESULT_OK, Intent().putExtra("result", text.text.toString()))
+        binding.btnExit.setOnClickListener {
+            setResult(
+                RESULT_OK, Intent().putExtra(
+                    "result", binding.tvActivity.text.toString()
+                )
+            )
             finish()
         }
     }
